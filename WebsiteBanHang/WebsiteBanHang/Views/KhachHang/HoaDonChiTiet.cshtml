@@ -1,0 +1,123 @@
+﻿@model WebsiteBanHang.Models.HomeModel
+
+@{
+    ViewBag.Title = "HoaDonChiTiet";
+    Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+}
+
+
+<link href="~/Content/css/KhachHang/donhang.css" rel="stylesheet" />
+
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content bg-white padding-y">
+    <div class="container">
+        @foreach (var item in Model.ListHoaDon)
+        {
+            var tongtien = 0.0;
+                <div class="d-flex justify-content-between align-items-center py-3">
+                    <h2 class="h5 mb-0"><a href="#" class="text-muted"></a> Hóa Đơn #@item.MaHD</h2>
+                </div>
+            foreach (var khachhang in Model.ListKhachHang)
+            {
+                <!-- Main content -->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <!-- Details -->
+                        <div class="mb-3 justify-content-between">
+                            <div class="card mb-4">
+                                <div class="card-header bg-white">
+                                    <div class="media flex-sm-row flex-column-reverse justify-content-between  ">
+                                        <div class="col my-auto"> <h4 class="mb-0">Cảm ơn <span class="change-color">@khachhang.TenKH</span> !</h4> </div>
+                                        <div class="col-auto text-center  my-auto pl-0 pt-sm-4"> <img class="img-fluid my-auto align-items-center mb-0 pt-3" src="~/Content/images/LOGO.png" width="125" height="125"> <p class="mb-4 pt-0 Glasses"></p>  </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row justify-content-between mb-3">
+                                        <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Danh sách sản phẩm</h6> </div>
+
+                                    </div>
+                                    <div class="row">
+                                        @foreach (var itemct in Model.ListCTHoaDon)
+                                        { 
+                                            <div class="col">
+                                               
+                                                <div class="card card-2">
+                                                    @foreach (var sanpham in Model.ListSanPham.Where(n => n.MaSP == itemct.MaSP))
+                                                    {
+                                                    <div class="card-body">
+                                                        <div class="media">
+                                                            <div class="sq align-self-center "> <img class="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="~/Content/images/items/@sanpham.HinhDD" width="135" height="135" /> </div>
+                                                            <div class="media-body my-auto text-right">
+                                                                <div class="row  my-auto flex-column flex-md-row">
+                                                                    <div class="col my-auto"> <h6 class="mb-0"> @sanpham.TenSP</h6>  </div>
+
+                                                                    <div class="col my-auto"> <small>Số lượng: @itemct.SoLuong </small></div>
+                                                                    <div class="col my-auto"> <small>Giá bán: @itemct.GiaTien</small></div>
+                                                                    <div class="col my-auto">
+                                                                        <h6 class="mb-0"> @{
+
+                                                                            var ttmotsp = itemct.SoLuong * itemct.GiaTien;
+                                                                            tongtien = tongtien + ttmotsp;
+
+                                                                        } @ttmotsp  đ</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <hr class="my-3 ">
+                                                    </div>
+                                                                            }
+                                                </div>
+                                                
+                                            </div>                            
+                                            }
+                                    </div>                                     
+                                </div>
+                                <div class="card-footer">
+                                    <div class="jumbotron-fluid">                                 
+                                        <div class="row justify-content-between ">     
+                                            <div class="col-auto my-auto "><h3 class="mb-0 font-weight-bold">TỔNG TIỀN</h3></div>
+                                            <div class="col-auto my-auto ml-auto"><h3>@tongtien VNĐ</h3></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Payment -->
+                    </div>
+
+                    <div class="col-lg-4">
+                        <!-- Customer Notes -->
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h3 class="h6">Ghi chú</h3>
+                                <p>@item.GhiChu</p>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <!-- Shipping information -->
+                            <div class="card-body">
+                                <h3 class="h6">Thông tin nơi giao hàng</h3>
+
+                                <hr>
+                                <h3 class="h6">Địa chỉ và tên người nhận</h3>
+                                <address>
+                                    Tên người nhận: @khachhang.HoKH @khachhang.TenKH<br>
+                                    Địa chỉ: @item.DiaChi <br>
+
+                                    <p>Số điện thoại:  @item.SoDT</p>
+                                </address>
+                            </div>
+                        </div>
+                        <a class="btn btn-success" href="/GioHang/ThemVaoGioDMLst?MaSP=SP04&amp;MaDM=DM02">  Xuất hóa đơn </a>
+                    </div>
+                </div>
+
+            }
+
+        }
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->

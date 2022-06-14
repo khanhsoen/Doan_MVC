@@ -1,0 +1,59 @@
+﻿@using WebsiteBanHang.CSDL
+@using PagedList.Mvc;
+@model PagedList.IPagedList<BaiViet>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+
+}
+
+
+
+
+
+
+<!-- ============================ COMPONENT BOOTSTRAP CARD WITH  IMG ================================= -->
+<section class="section-content bg-white padding-y">
+    <div class="container">
+        <div class="row">
+
+
+            @foreach (var item in Model.OrderBy(n => n.MaBV))
+            {
+
+                <div class="col-md-4">
+                    <div class="card bg-dark">
+                        <img src="~/Content/images/posts/@item.HinhDD" class="card-img opacity">
+                        <div class="card-img-overlay text-white">
+                            <h5 class="card-title">@item.TenBV</h5>
+                            <p class="card-text">@item.NgayDang</p>
+
+                            <a href="@Url.Action("ChiTietBaiViet", "BaiViet", new { MaBV = item.MaBV})"
+                               class="btn btn-light">Xem ngay! </a>
+                        </div>
+                    </div>
+                </div> <!-- col.// -->
+
+            }
+
+         
+        </div> <!-- row.// -->
+
+
+       
+       
+
+        <br />
+        <div class="row">
+            <div class="col-4">
+            </div>
+            <nav class="col-8" aria-label="Page navigation sample">
+                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+                <ul class="pagination" style="text-align: center">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>

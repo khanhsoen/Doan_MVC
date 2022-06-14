@@ -1,0 +1,92 @@
+﻿@model IEnumerable<WebsiteBanHang.CSDL.HoaDon>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="content-wrapper">
+    <br />
+    <table class="table table-bordered" style="width:100%" id="example">
+        <thead class="thead-dark">
+            <tr>
+                <th>Mã hóa đơn</th>
+                <th>Ngày đặt</th>
+                <th>Ngày giao</th>
+                <th>Số điện thoại</th>
+                <th>Địa chỉ</th>
+                <th>Ghi chú</th>
+                <th>Mã trạng thái</th>
+                <th>Mã nhân viên</th>
+                <th>Mã khách hàng</th>
+                <th>Thanh toán</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaHD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayGiao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GhiChu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaTT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThanhToan)
+        </td>
+
+    </tr>
+        }
+
+    </table>
+
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+$(document).ready(function () {
+                $("#example").dataTable({
+                    "columns": [
+                        { 'data': 'MaHD' },
+                        { 'data': 'NgayDat' },
+                        { 'data': 'NgayGiao' },
+                        { 'data': 'SoDT' },
+                        { 'data': 'DiaChi' },
+                        { 'data': 'GhiChu' },
+                        { 'data': 'MaTT' },
+                        { 'data': 'MaNV' },
+                        { 'data': 'ThanhToan' },
+
+                        { 'data': 'MaKH' },
+                    ],
+                    "dom": 'Bfrtip',
+                    "buttons": [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                })
+            })</script>
+}

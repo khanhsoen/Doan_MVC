@@ -1,0 +1,78 @@
+﻿@model IEnumerable<WebsiteBanHang.CSDL.BaiViet>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <br />
+    <table class="table table-bordered" style="width:100%" id="example">
+        <thead class="thead-dark">
+            <tr>
+                <th>Mã bài viết</th>
+                <th>Tên bài viết</th>
+                <th>Nội dung</th>
+                <th>Hình DD</th>
+                <th>Ngày đăng</th>
+                <th>Mã nhân viên</th>
+            </tr>
+
+           
+
+        </thead>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaBV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenBV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoiDung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HinhDD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNV)
+        </td>
+
+      
+
+    </tr>
+        }
+
+    </table>
+
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $("#example").dataTable({
+                    "columns": [
+                        { 'data': 'MaBV' },
+                        { 'data': 'TenBV' },
+                        { 'data': 'NoiDung' },
+                        { 'data': 'HinhDD' },
+                        { 'data': 'NgayDang' },
+                        { 'data': 'MaNV)' },     
+                    ],
+                    "dom": 'Bfrtip',
+                    "buttons": [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                })
+            })
+    </script>
+}
+
+

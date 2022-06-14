@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1625db5b72ea4d689f4683152fa26125" Name="Diagram1">
+        <EntityTypeShape EntityType="QLTP3Model.BaiViet" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTP3Model.CTPhieuNhap" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTP3Model.CTHoaDon" Width="1.5" PointX="8.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTP3Model.DanhMuc" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTP3Model.HoaDon" Width="1.5" PointX="6" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTP3Model.KhachHang" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTP3Model.NhaCungCap" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTP3Model.NhanVien" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTP3Model.Nhom" Width="1.5" PointX="1.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTP3Model.PhanHoi" Width="1.5" PointX="6" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTP3Model.PhieuNhap" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTP3Model.SanPham" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTP3Model.sysdiagrams" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTP3Model.TrangThai" Width="1.5" PointX="3.75" PointY="13.5" IsExpanded="true" />
+        <AssociationConnector Association="QLTP3Model.FK__BaiViet__MaNV__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTP3Model.FK__CTPhieuNha__MaPN__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTP3Model.FK__CTPhieuNha__MaSP__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTP3Model.FK__CTHoaDon__MaHD__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTP3Model.FK__CTHoaDon__MaSP__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTP3Model.FK__SanPham__MaDM__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTP3Model.FK__HoaDon__MaKH__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTP3Model.FK__HoaDon__MaNV__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTP3Model.FK__HoaDon__MaTT__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTP3Model.FK__PhanHoi__MaKH__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTP3Model.FK__PhieuNhap__MaNCC__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTP3Model.FK__SanPham__MaNCC__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTP3Model.FK__NhanVien__MaNhom__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTP3Model.FK__PhieuNhap__MaNV__2F10007B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

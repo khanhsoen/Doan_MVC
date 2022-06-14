@@ -1,0 +1,113 @@
+﻿@model IEnumerable<WebsiteBanHang.CSDL.NhanVien>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    string gtinh = "";
+}
+
+
+
+<div class="content-wrapper">
+    <br />
+    <table class="table table-bordered" style="width:100%" id="example">
+        <thead class="thead-dark">
+            <tr>
+                <th>Mã nhân viên</th>
+                <th>Tài khoản</th>
+                <th>Họ nhân viên</th>
+                <th>Tên nhân viên</th>
+                <th>Số điện thoại</th>
+                <th>Địa chỉ</th>
+                <th>Email</th>
+                <th>Lương</th>
+                <th>Ngày sinh</th>
+                <th>Giới tính</th>
+                <th>Hình DD</th>
+                <th>Mã nhóm</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaNV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaiKhoan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoNV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenNV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoDT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Luong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgaySinh)
+                </td>
+                <td>
+                    @{if (item.GioiTinh == true)
+                        { gtinh = "Nam"; }
+                        else
+                        { gtinh = "Nữ"; }
+                    }
+                    @gtinh
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HinhDD)
+                </td>
+                <td>
+                    @{if (item.MaNhom == "MN1")
+                        { item.MaNhom = "Nhân viên"; }
+                        else
+                        { item.MaNhom = "Quản lý"; }
+                    }
+                   
+                    @Html.DisplayFor(modelItem => item.MaNhom)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+$(document).ready(function () {
+                $("#example").dataTable({
+                    "columns": [
+                        { 'data': 'MaNV' },
+                        { 'data': 'TaiKhoan' },
+                        { 'data': 'HoNV' },
+                        { 'data': 'TenNV' },
+                        { 'data': 'SoDT' },
+                        { 'data': 'DiaChi' },
+                        { 'data': 'Email' },
+                        { 'data': 'Luong' },
+                        { 'data': 'NgaySinh' },
+                        { 'data': 'GioiTinh' },
+                        { 'data': 'HinhDD' },
+
+                        { 'data': 'MaNhom' },
+                    ],
+                    "dom": 'Bfrtip',
+                    "buttons": [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                })
+            })</script>
+}

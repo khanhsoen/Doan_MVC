@@ -1,0 +1,99 @@
+﻿@model IEnumerable<WebsiteBanHang.CSDL.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    string phoBien = "";
+}
+
+
+
+<div class="content-wrapper">
+    <br />
+    <table class="table table-bordered" style="width:100%" id="example">
+        <thead class="thead-dark">
+            <tr>
+                <th>Mã sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Hình DD</th>
+                <th>Số lượng</th>
+                <th>Mô tả CT</th>
+                <th>Giá bán</th>
+                <th>Phổ biến</th>
+                <th>Ngày đăng</th>
+                <th>Mã nhà cung cấp</th>
+                <th>Mã danh mục</th>
+
+
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaSP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HinhDD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoTaCT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiaBan)
+                </td>
+                <td>
+                    @{if (item.PhoBien == true)
+                        { phoBien = "Nhanh"; }
+                        else
+                        { phoBien = "Chậm"; }
+                    }
+                    @phoBien
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayDang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaNCC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaDM)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+$(document).ready(function () {
+                $("#example").dataTable({
+                    "columns": [
+                        { 'data': 'MaSP' },
+                        { 'data': 'TenSP' },
+                        { 'data': 'HinhDD' },
+                        { 'data': 'SoLuong' },
+                        { 'data': 'MoTaCT' },
+                        { 'data': 'GiaBan' },
+                        { 'data': 'PhoBien' },
+                        { 'data': 'NgayDang' },
+                        { 'data': 'MaNCC' },
+                        { 'data': 'MaDM' },
+                    ],
+                    "dom": 'Bfrtip',
+                    "buttons": [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                })
+            })</script>
+}

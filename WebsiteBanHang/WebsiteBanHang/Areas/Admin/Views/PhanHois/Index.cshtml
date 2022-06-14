@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WebsiteBanHang.CSDL.PhanHoi>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="content-wrapper">
+    <br />
+    <table class="table table-bordered" style="width:100%" id="example">
+        <thead class="thead-dark">
+            <tr>
+                <th>Mã phản hồi</th>
+                <th>Ngày gửi</th>
+                <th>Chủ đề</th>
+                <th>Nội dung</th>
+                <th>Mã khách hàng</th>
+
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaPH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayGui)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChuDe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoiDung)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaKH)
+                </td>
+
+
+            </tr>
+        }
+
+    </table>
+
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $("#example").dataTable({
+                    "columns": [
+                        { 'data': 'MaPH' },
+                        { 'data': 'NgayGui' },
+                        { 'data': 'ChuDe' },
+                        { 'data': 'NoiDung' },
+
+                        { 'data': 'MaKH' },
+                    ],
+                    "dom": 'Bfrtip',
+                    "buttons": [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                })
+            })
+    </script>
+}
+
+
